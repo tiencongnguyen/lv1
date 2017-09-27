@@ -29,13 +29,6 @@ function lv1080_body_classes( $classes ) {
 		$classes[] = 'lv1080-customizer';
 	}
 
-	// Add class on front page.
-	if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) ) {
-		$classes[] = 'lv1080-front-page';
-	} else {
-		$classes[] = 'bg-white';
-	}
-
 	// Add a class if there is a custom header.
 	if ( has_header_image() ) {
 		$classes[] = 'has-header-image';

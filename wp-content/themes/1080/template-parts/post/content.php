@@ -11,28 +11,25 @@
  */
 
 ?>
-<?php get_template_part ('template-parts/navigation/breadscrumb', ''); ?><!-- Breadcrumb -->
+<?php get_template_part ('template-parts/navigation/breadscrumb', ''); ?>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <div class="page-content text-justify">
-        <?php the_title('<h1>', '</h1>'); ?>
-        <div class="clearfix">
-          <div class="block-timer pull-left">
-            <div class="text-muted">
-              <?php echo lv1080_posted_on(); ?>
+      <div class="news-page bg-white border-grey p-1 mb-2">
+        <div class="post-content">
+          <?php the_title('<h1 class="mt-0">', '</h1>'); ?>
+          <div class="clearfix mb-1">
+            <?php echo lv1080_posted_on(); ?>
+            <div class="pull-right">
             </div>
           </div>
-          <div class="social-button pull-right">
-                <?php get_template_part ('template-parts/navigation/navigation', 'social-link'); ?>
-          </div>
+          <?php the_content(); ?>
         </div>
-        <?php the_content();?>
+        <?php get_template_part ('template-parts/post/related', 'posts'); ?>
       </div>
-      <?php get_template_part ('template-parts/post/related', 'posts'); ?>
     </div>
     <div class="col-md-4">
       <?php get_sidebar(); ?>
     </div>
   </div>
-</div> <!-- Container -->
+</div>

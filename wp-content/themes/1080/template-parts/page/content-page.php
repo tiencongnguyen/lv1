@@ -11,20 +11,18 @@
  */
 
 ?>
-<?php get_template_part ('template-parts/navigation/breadscrumb', ''); ?><!-- Breadcrumb -->
+<?php get_template_part ('template-parts/navigation/breadscrumb', ''); ?>
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="title-line">
-      <?php the_title('<h1>', '</h1>'); ?>
+  <div class="contact-page bg-white border-grey pl-1 pr-1 py-3 mb-2">
+    <h1 class="header-line text-center">
+      <?php the_title('<span>', '</span>'); ?>
+    </h1>
+    <div class="row">
+      <div class="containter">
+        <div class="col-md-12">
+          <?php the_content(); ?>
+        </div>
       </div>
-      <div class="page-content text-justify">
-        <?php the_content();?>
-      </div>
-      <?php get_template_part ('template-parts/post/related', 'posts'); ?>
-    </div>
-    <div class="col-md-4">
-      <?php get_sidebar(); ?>
     </div>
   </div>
-</div> <!-- Container -->
+</div>

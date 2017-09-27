@@ -32,9 +32,9 @@ class Lv1080_Posts_By_Category_Widget extends WP_Widget {
 				echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 			}
 			if ( isset( $instance["thumb"] ) && $instance["thumb"]) {
-				echo '<ul class="media-list">';
+				echo '<ul class="sb-news__list media-list">';
 			} else {
-				echo '<ul class="sidebar-list__service list-default">';
+				echo '<ul class="list-service list-default">';
 			}
 
 			
@@ -120,10 +120,10 @@ class Lv1080_Posts_By_Category_Widget extends WP_Widget {
         if ( isset( $instance["thumb"] ) && $instance["thumb"]) {
             $ret .= '<li class="media">
             <div class="media-left">
-	            <a class="media-image" href="'.get_permalink().'">'.get_the_post_thumbnail (null, 'lv1080-thumbnail-sidebar', array('class'=>'media-object')) .'</a></div><div class="media-body">
+	            <a class="aspect-ratio" href="'.get_permalink().'">'.get_the_post_thumbnail (null, 'lv1080-thumbnail-sidebar', array('class'=>'media-object')) .'</a></div><div class="media-body">
                     <a href="'.get_permalink().'">'.get_the_title() .'</a></div></li>';
         } else {// No thumbnail
-        	$ret .= '<li><a href="'.get_permalink().'">'.get_the_title() .'</a></li>';
+        	$ret .= '<li><a class="text-black" href="'.get_permalink().'">'.get_the_title() .'</a></li>';
         }
 
         return $ret;

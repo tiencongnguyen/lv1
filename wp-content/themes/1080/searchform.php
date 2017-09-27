@@ -12,9 +12,11 @@
 
 <?php $unique_id = esc_attr( uniqid( 'search-form-' ) ); ?>
 
-<div class="search-form">
+<div class="search-form mt-1">
   <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    <input id="<?php echo $unique_id; ?>" class="form-control" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr_x( 'Nhập từ cần tìm...', 'placeholder', 'lv1080' ); ?>">
-    <a href="javascript:void(0)" class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></a>
+    <div class="form-group mb-0">
+      <input id="<?php echo $unique_id; ?>" class="form-control" type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="<?php echo esc_attr_x( 'Nhập từ cần tìm...', 'placeholder', 'lv1080' ); ?>">
+    </div>
+    <button type="submit" class="btn btn-default btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
   </form>
 </div>

@@ -1,11 +1,11 @@
 <?php
 if (!function_exists('lv1080_the_breadcrumb')) {
     function lv1080_the_breadcrumb() {
-        $seperator = '<div class="seperator">/</div>';
-        echo '<div><i class="fa fa-home"></i></div> <div typeof="v:Breadcrumb" class="root"><a rel="v:url" property="v:title" href="';
+        $seperator = '';
+        echo '<li typeof="v:Breadcrumb" class="root"><a rel="v:url" property="v:title" href="';
         echo home_url();
         echo '">'.sprintf( __( "Trang chủ","lv1080"));
-        echo '</a></div>' . $seperator;
+        echo '</a></li>' . $seperator;
 
         if (is_category()) {
             $categories = get_the_category();
@@ -13,9 +13,9 @@ if (!function_exists('lv1080_the_breadcrumb')) {
             if($categories){
                 foreach($categories as $category) {
                     if ($category->parent == 0) {
-                        echo '<div><span>' . $category->cat_name . '</span></div>';
+                        echo '<li class="active">' . $category->cat_name . '</div>';
                     } else {
-                        echo '<div typeof="v:Breadcrumb"><a href="'.get_category_link( $category->term_id ).'" rel="v:url" property="v:title">'.$category->cat_name.'</a></div><div>' . $seperator . '</div>';
+                        echo '<li typeof="v:Breadcrumb"><a href="'.get_category_link( $category->term_id ).'" rel="v:url" property="v:title">'.$category->cat_name.'</a></li>';
                     }
                 }
             }
@@ -24,18 +24,18 @@ if (!function_exists('lv1080_the_breadcrumb')) {
             $output = '';
             if($categories){
                 foreach($categories as $category) {
-                    echo '<div typeof="v:Breadcrumb"><a href="'.get_category_link( $category->term_id ).'" rel="v:url" property="v:title">'.$category->cat_name.'</a></div>' . $seperator;
+                    echo '<li typeof="v:Breadcrumb"><a href="'.get_category_link( $category->term_id ).'" rel="v:url" property="v:title">'.$category->cat_name.'</a></li>' . $seperator;
                 }
             }
-            echo "<div><span>";
+            echo '<li class="active">';
             the_title();
-            echo "</span></div>";
+            echo '</li>';
         } elseif (is_page()) {
-            echo "<div><span>";
+            echo '<li class="active">';
             the_title();
-            echo "</span></div>";
+            echo '</li>';
         } else {
-            echo '<span class="hidden"></<span>';
+            echo '<li class="hidden"></li>';
         }
     }
 }

@@ -13,7 +13,7 @@
  */
 
 ?>
-    <div class="footer">
+    <div class="footer bg-white py-3">
       <div class="container">
         <div class="row">
           <?php get_template_part( 'template-parts/footer/footer', 'widgets'); ?>

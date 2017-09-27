@@ -14,16 +14,15 @@ if ( ! function_exists( 'lv1080_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function lv1080_posted_on() {
-
-	// Get the author name; wrap it in a link.
-	$byline = sprintf(
-		/* translators: %s: post author */
-		__( '%s', 'lv1080' ),
-		'<span class="author vcard"><i class="fa fa-user-o" aria-hidden="true"></i> &nbsp;' . get_the_author() . ' &nbsp; &nbsp;</span>'
-	);
-
-	// Finally, let's write all of this to the page.
-	echo $byline . '<span class="posted-on"><i class="fa fa-calendar" aria-hidden="true"></i>' . lv1080_time_link() . '</span>';
+	$byline = '<div class="date-time pull-left">
+                  <span class="text-muted pr-1">
+                    <i class="fa fa-user"></i> ' . get_the_author() . '
+                  </span>
+                  <span class="text-muted">
+                    <i class="fa fa-calendar-check-o"></i> ' . lv1080_time_link() .'
+                  </span>
+                </div>';
+	echo $byline;
 }
 endif;
 
@@ -37,7 +36,7 @@ function lv1080_time_link() {
 
 	$time_string = sprintf( $time_string,
 		get_the_date( DATE_W3C ),
-		get_the_date('l, d/m/Y')
+		get_the_date('d/m/Y')
 	);
 
 	// Wrap the time string in a link, and preface it with 'Posted on'.

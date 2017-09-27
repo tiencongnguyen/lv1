@@ -1,4 +1,4 @@
-<div class="related-news">
+<div class="other-news">
     <?php
     $orig_post = $post;
     global $posts;
@@ -16,31 +16,15 @@
       );
       $query = new WP_Query( $args );
       if ( $query->have_posts() ) : ?>
-        <div class="sidebar-heading">
-          <h2>Bài viết liên quan</h2>
-        </div>
-        <div class="row">
+        <h3><span>BÀI VIẾT LIÊN QUAN</span></h3>
+        <ul class="list-default">
 
         <?php 
         while ( $query->have_posts() ) : $query->the_post(); ?>
-        <div class="col-sm-6 col-md-3"> 
-          <div class="item">
-            <div class="image-center">
-              <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail (array(300, 200)); ?></a>
-            </div>
-            <div class="description">
-              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-              <div class="block-timer">
-                <div class="text-muted">
-                  <i class="fa fa-calendar" aria-hidden="true"></i>  <?php echo lv1080_time_link(); ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <li><a class="text-black" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
         <?php 
         endwhile;
-        echo '</div>';
+        echo '</ul>';
       endif;
     endif;
     $post = $orig_post;

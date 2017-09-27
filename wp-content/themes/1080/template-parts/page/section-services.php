@@ -1,10 +1,15 @@
-<div class="section-service__more sec-pad">
-      <h2 class="heading-graphic white"><?php echo get_theme_mod( 'panel_service_title', 'CÁC DỊCH VỤ VIẾT THUÊ LUẬN VĂN'); ?></h2>
-      <div class="container">
-        <div class="row">
-        <?php 
-            if (is_active_sidebar ('section-services')) {dynamic_sidebar ('section-services');}
-        ?>
-        </div>
+<div class="our-service py-3">
+  <h2 class="header-line text-center">
+    <span><?php echo get_theme_mod( 'panel_service_title', 'Dịch vụ của chúng tôi'); ?></span>
+  </h2>
+  <div class="row">
+    <div class="col-md-6">
+    	<?php if (is_active_sidebar ('section-service-left')) {dynamic_sidebar ('section-service-left');} ?>
+    </div>
+    <div class="col-md-6">
+      <div class="our-service__list">
+    		<?php if (is_active_sidebar ('section-service-right')) {dynamic_sidebar ('section-service-right');} ?>
       </div>
-    </div> <!-- Section Service -->
+    </div>
+  </div>
+</div> <!-- Our Service -->

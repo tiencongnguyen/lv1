@@ -23,27 +23,28 @@
   </head>
   <body <?php body_class(); ?>>
     <div class="header" id="header">
-      <div class="top-header" id="top-header">
-        <div class="container">
-          <div class="hot-link pull-left">
-            <span class="hotline"><i class="fa fa-phone"></i> <strong><a href="tel:<?php echo get_theme_mod( 'lv1080_phonenumber', '098.855.2424' ); ?>" title="hotlline"><?php echo get_theme_mod( 'lv1080_phonenumber', '098.855.2424' ); ?></a></strong></span>
-            <a class="mail" href="mailto:<?php echo get_theme_mod( 'lv1080_email', 'lv1080.group@gmail.com' ); ?>"><i class="fa fa-envelope"></i> <?php echo get_theme_mod( 'lv1080_email', 'lv1080.group@gmail.com' ); ?></a>
-          </div>
-          <div class="social pull-right">
-            <a href="<?php echo get_theme_mod('lv1080_facebook', 'http://fb.com/'); ?>"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-            <a href="<?php echo get_theme_mod('lv1080_googleplus', 'http://google.com/'); ?>"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-            <a href="<?php echo get_theme_mod('lv1080_youtube', 'http://youtube.com/'); ?>"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      </div> <!-- Top Header -->
-      <div class="content-header hidden-xs" id="content-header">
+      <div class="content-header hidden-xs">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-sm-3 col-md-4">
               <?php lv1080_the_custom_logo(); ?>
             </div>
-            <div class="col-md-offset-3 col-md-6">
+            <div class="col-sm-5 col-md-5">
               <?php echo get_search_form() ?>
+            </div>
+            <div class="col-sm-4 col-md-3">
+              <div class="text-right mt-1">
+                <p class="hotline mb-0">
+                  <i class="fa fa-phone text-warning"></i> <span class="text-muted">Hotline:</span>
+                  <strong class="text-warning"><a href="tel:<?php echo get_theme_mod( 'lv1080_phonenumber', '098.855.2424' ); ?>" title="hotlline"><?php echo get_theme_mod( 'lv1080_phonenumber', '098.855.2424' ); ?></a></strong>
+                </p>
+                <p class="mb-0">
+                  <a href="#">
+                    <i class="fa fa-envelope-o text-warning"></i> <span class="text-muted">Email:</span>
+                    <span class="text-black"><a class="mail" href="mailto:<?php echo get_theme_mod( 'lv1080_email', 'lv1080.group@gmail.com' ); ?>"><?php echo get_theme_mod( 'lv1080_email', 'lv1080.group@gmail.com' ); ?></a></span>
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -52,5 +53,3 @@
           <?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
       <?php endif; ?>
     </div> <!-- Header -->
-
-    <?php (is_home() || is_front_page())?get_template_part( 'template-parts/header/header', 'slider' ):''; ?>

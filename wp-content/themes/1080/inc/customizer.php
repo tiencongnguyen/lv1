@@ -49,61 +49,51 @@ function lv1080_customize_register( $wp_customize ) {
 		// 'description' => __( 'Display phonenumber on top navigation.', 'lv1080' )
 	) );
 
-	// custom social
-	$wp_customize->add_section( 'lv1080_social', array(
-		'title'    => __( 'Liên kết mạng xã hội', 'lv1080' ),
-		'priority' => 1,
-		'panel'	=> 'theme_options'
-	) );
-	$wp_customize->add_setting( 'lv1080_facebook', array(
-		'default'           => '#',
-		'transport'         => 'postMessage',
-	) );
-	$wp_customize->add_setting( 'lv1080_googleplus', array(
-		'default'           => '#',
-		'transport'         => 'postMessage',
-	) );
-	$wp_customize->add_setting( 'lv1080_youtube', array(
-		'default'           => '#',
-		'transport'         => 'postMessage',
-	) );
-
-	$wp_customize->add_control( 'lv1080_facebook', array(
-		'label'       => __( 'Facebook:', 'lv1080' ),
-		'section'     => 'lv1080_social',
-		'type'        => 'text',
-		'description' => __( 'Tùy chỉnh các đường dẫn mạng xã hội phổ biến.', 'lv1080' )
-	) );
-	$wp_customize->add_control( 'lv1080_googleplus', array(
-		'label'       => __( 'Google +:', 'lv1080' ),
-		'section'     => 'lv1080_social',
-		'type'        => 'text'
-	) );
-	$wp_customize->add_control( 'lv1080_youtube', array(
-		'label'       => __( 'Youtube:', 'lv1080' ),
-		'section'     => 'lv1080_social',
-		'type'        => 'text'
-	) );
-
-
 	/**
 	 * Filter number of front page sections in Lv1080
 	 *
 	 * @since lv1080 1.0
 	 *
 	 */
-	$wp_customize->add_section( 'panel_core', array(
-		'title'    => __( 'Section giá trị cốt lõi', 'lv1080' ),
+	$wp_customize->add_section( 'panel_tut', array(
+		'title'    => __( 'Section hướng dẫn', 'lv1080' ),
 		'priority' => 2,
 		'panel'	=> 'theme_options'
 	) );
-	$wp_customize->add_setting( 'panel_core_title', array(
-		'default'           => 'Viết thuê luận văn thạc sỹ số 1 VN',
+	$wp_customize->add_setting( 'panel_tut_title', array(
+		'default'           => 'Bài hướng dẫn mới nhất',
 		'transport'         => 'postMessage',
 	) );
-	$wp_customize->add_control( 'panel_core_title', array(
-		'label'          => __( 'Tiêu đề section giá trị cốt lõi', 'lv1080' ),
-		'section'        => 'panel_core',
+	$wp_customize->add_control( 'panel_tut_title', array(
+		'label'          => __( 'Tiêu đề section hướng dẫn', 'lv1080' ),
+		'section'        => 'panel_tut',
+		'type'           => 'text'
+	) );
+	$wp_customize->add_setting( 'panel_tut_link', array(
+		'default'           => '#',
+		'transport'         => 'postMessage',
+	) );
+	$wp_customize->add_control( 'panel_tut_link', array(
+		'label'          => __( 'Liên kết danh mục bài hướng dẫn', 'lv1080' ),
+		'section'        => 'panel_tut',
+		'type'           => 'text'
+	) );
+	$wp_customize->add_setting( 'panel_tut_category', array(
+		'default'           => 0,
+		'transport'         => 'postMessage',
+	) );
+	$wp_customize->add_control( new Category_Dropdown_Custom_Control( $wp_customize, 'panel_tut_category', array(
+		'label'          => __( 'Danh mục bài hướng dẫn', 'abeevn' ),
+		'section'        => 'panel_tut',
+		'type'           => 'text'
+	) ));
+	$wp_customize->add_setting( 'panel_tut_num', array(
+		'default'           => 8,
+		'transport'         => 'postMessage',
+	) );
+	$wp_customize->add_control( 'panel_tut_num', array(
+		'label'          => __( 'Số bài hiển thị', 'lv1080' ),
+		'section'        => 'panel_tut',
 		'type'           => 'text'
 	) );
 
@@ -113,7 +103,7 @@ function lv1080_customize_register( $wp_customize ) {
 		'panel'	=> 'theme_options'
 	) );
 	$wp_customize->add_setting( 'panel_service_title', array(
-		'default'           => 'Các dịch vụ thuê viết luận văn',
+		'default'           => 'Các dịch vụ của chúng tôi',
 		'transport'         => 'postMessage',
 	) );
 	$wp_customize->add_control( 'panel_service_title', array(
@@ -140,7 +130,7 @@ function lv1080_customize_register( $wp_customize ) {
 	) );
 	// custom email
 	$wp_customize->add_setting( 'home_contact_form', array(
-		'default'           => '[contact-form-7 id="62"]',
+		'default'           => '[contact-form-7 id="13"]',
 		'transport'         => 'postMessage'
 	) );
 	$wp_customize->add_control( 'home_contact_form', array(
@@ -150,18 +140,18 @@ function lv1080_customize_register( $wp_customize ) {
 		// 'description' => __( 'Display email on top navigation.', 'lv1080' )
 	) );
 
-	$wp_customize->add_section( 'panel_type', array(
-		'title'    => __( 'Section các loại luận văn đồ án', 'lv1080' ),
+	$wp_customize->add_section( 'panel_faq', array(
+		'title'    => __( 'Section hỏi đáp', 'lv1080' ),
 		'priority' => 4,
 		'panel'	=> 'theme_options'
 	) );
-	$wp_customize->add_setting( 'panel_type_title', array(
-		'default'           => 'Các loại luận văn đồ án',
+	$wp_customize->add_setting( 'panel_faq_title', array(
+		'default'           => 'Hỏi đáp',
 		'transport'         => 'postMessage',
 	) );
-	$wp_customize->add_control( 'panel_type_title', array(
-		'label'          => sprintf( __( 'Tiêu đề section các loại luận văn', 'lv1080' )),
-		'section'        => 'panel_type',
+	$wp_customize->add_control( 'panel_faq_title', array(
+		'label'          => sprintf( __( 'Tiêu đề section hỏi đáp', 'lv1080' )),
+		'section'        => 'panel_faq',
 		'type'           => 'text'
 	) );
 }
