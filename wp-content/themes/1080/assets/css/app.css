@@ -586,6 +586,7 @@ body {
   top: 0;
   right: 0;
 }
+.customer .faq .panel-group .panel .panel-heading .panel-title a[aria-expanded="true"]::before { content: '\f068';}
 
 /* line 585, ../scss/app.scss */
 .footer .footer-item h5 {

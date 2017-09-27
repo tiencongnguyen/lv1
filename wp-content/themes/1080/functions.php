@@ -702,7 +702,10 @@ function lv1080_accordion_shortcode( $atts, $content = null ) {
 add_shortcode( 'lv1080_accordion', 'lv1080_accordion_shortcode' );
 
 function lv1080_process_shortcode( $atts, $content = null ) {
-	return '<div class="panel panel-default border-0"> <div class="panel-heading" role="tab" id="heading' . $atts['id'] . '"> <h4 class="panel-title"> <a class="font-16" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $atts['id'] . '" aria-expanded="true" aria-controls="collapseOne"> <strong>'. $atts['title'] . '</strong> </a> </h4> </div> <div id="collapse' . $atts['id'] . '" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading' . $atts['id'] . '"> <div class="panel-body"> <p>' . $content . '</p> </div> </div> </div>';
+	$expand = ($atts['id'] == 1)?'true':'false'; 
+	$in = ($atts['id'] == 1)?'in':'';
+
+	return '<div class="panel panel-default border-0"> <div class="panel-heading" role="tab" id="heading' . $atts['id'] . '"> <h4 class="panel-title"> <a class="font-16" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse' . $atts['id'] . '" aria-expanded="'. $expand .'" aria-controls="collapse' . $atts['id'] . '"> <strong>'. $atts['title'] . '</strong> </a> </h4> </div> <div id="collapse' . $atts['id'] . '" class="panel-collapse collapse ' . $in . '" role="tabpanel" aria-labelledby="heading' . $atts['id'] . '"> <div class="panel-body"> <p>' . $content . '</p> </div> </div> </div>';
 }
 add_shortcode( 'faq', 'lv1080_process_shortcode' );
 // Enable shortcodes in text widgets

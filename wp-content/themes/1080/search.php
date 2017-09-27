@@ -28,7 +28,8 @@ get_header();?>
             <div class="col-sm-6 col-md-4">
               <div class="item mb-3">
                 <div class="news-image">
-                  <?php the_post_thumbnail (array (220, 220), array('class'=>'aspect-ratio')) ; ?>
+                  <a class="aspect-ratio" href="<?php the_permalink() ?>">
+                  <?php the_post_thumbnail ('lv1080-thumbnail-image') ; ?></a>
                 </div>
                 <div class="news-post">
                   <h4><a class="text-black" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
